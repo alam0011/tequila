@@ -24,6 +24,14 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
+    - name: madness basics
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+        python -m pip install -e .
+        cp tests/*.npy .
+        ls
+        pytest tests/test_chemistry_madness.py
     - name: Install and test Psi4 interface
       run: |
         ver=$(python -c"import sys; print(sys.version_info.minor)")

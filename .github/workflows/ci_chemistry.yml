@@ -60,7 +60,6 @@ jobs:
         cd ../
     - name: Install and test madness interface
       run: |
-        # install mkl
         cd ~/GitHub/r-with-intel-mkl/
         wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
         sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
@@ -69,17 +68,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y intel-mkl-64bit
         
-        # get boost headers
         wget https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2
         tar --bzip2 -xf boost_1_73_0.tar.bz2
 
-        # get numcpp headers
         git clone https://github.com/dpilger26/NumCpp.git numcpp
       
-        # get madness source
         git clone https://github.com/kottmanj/madness.git madsrc
 
-        # configure and install madness
         mkdir madroot
         base=$(pwd)
         cd madroot

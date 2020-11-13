@@ -29,9 +29,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
         python -m pip install -e .
-        cp tests/*.npy .
+        cd tests
         ls
-        pytest tests/test_chemistry_madness.py
+        pytest test_chemistry_madness.py
+        cd ../
     - name: Install and test Psi4 interface
       run: |
         ver=$(python -c"import sys; print(sys.version_info.minor)")

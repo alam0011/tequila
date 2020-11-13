@@ -60,7 +60,6 @@ jobs:
         cd ../
     - name: Install and test madness interface
       run: |
-        cd ~/GitHub/r-with-intel-mkl/
         wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
         sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
         echo "trying to install mkl ..." 
@@ -83,7 +82,6 @@ jobs:
         export MAD_ROOT_DIR=$(pwd)
         cd $base
 
-        # install tequila and run tests
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
         python -m pip install -e .

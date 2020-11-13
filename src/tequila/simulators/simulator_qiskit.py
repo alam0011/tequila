@@ -300,7 +300,7 @@ class BackendCircuitQiskit(BackendCircuit):
         else:
             qiskit_backend = self.device
 
-        if qiskit_backend in qiskit.Aer.backends() or str(qiskit_backend).lower() == "ibmq_qasm_simulator":
+        if qiskit_backend in qiskit.Aer.backends() or str(qiskit_backend).lower() in ["ibmq_qasm_simulator", "quasm_simulator"]:
             return self.convert_measurements(qiskit.execute(circuit, backend=qiskit_backend, shots=samples,
                                                             basis_gates=full_basis,
                                                             optimization_level=optimization_level,

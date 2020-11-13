@@ -77,7 +77,7 @@ jobs:
         mkdir madroot
         base=$(pwd)
         cd madroot
-        cmake -D ENABLE_MKL=ON -D MKL_ROOT_DIR=/opt/intel/compilers_and_libraries_2020.1.102/linux/mkl -D CMAKE_CXX_FLAGS='-O3 -DNDEBUG -march=native -I/numcpp/include/ -I/boost_1_73_0/'  /madsrc/
+        cmake -D ENABLE_MKL=ON -D MKL_ROOT_DIR=/opt/intel/compilers_and_libraries_2020.1.102/linux/mkl -D CMAKE_CXX_FLAGS='-O3 -DNDEBUG -march=native -I/${base}/numcpp/include/ -I/${base}/boost_1_73_0/'  ${base}/madsrc/
         make -j
         export MAD_ROOT_DIR=$(pwd)
         cd $base

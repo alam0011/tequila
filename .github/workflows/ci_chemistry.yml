@@ -46,7 +46,7 @@ jobs:
         python -m pip install -e .
         cd tests
         ls
-        pytest test_chemistry.py
         pytest test_chemistry_madness.py
+        pytest test_chemistry.py
         cd ../
 
